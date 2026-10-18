@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="930" viewBox="0 0 1200 930" role="img" aria-labelledby="title description">
+  <title id="title">OlThing 아키텍처 · 2026년 10월 18일</title>
+  <desc id="description">모바일 앱은 React Native와 Expo 방향을 채택했으며 구현 전이다. 개발 프로필의 단일 Spring Boot 서버에는 이메일 인증과 세션, Task 핵심 API가 구현되어 있다. 서버는 PostgreSQL과 로컬 Mailpit에 연결된다. AI와 계획, 사진, 쇼핑, 구독과 외부 공급자 연결은 후속이다. 실선은 현재 개발 구현, 점선은 채택 방향과 후속 구현을 뜻한다. 원격 운영 배포는 아직 하지 않았다.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#f3f7ff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4 L1 7" fill="none" stroke="#416cba" stroke-width="2"/>
+    </marker>
+    <marker id="plannedArrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4 L1 7" fill="none" stroke="#8897ad" stroke-width="2"/>
+    </marker>
+    <style>
+      text { font-family: 'Malgun Gothic', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', sans-serif; }
+      .heading { font-size: 25px; font-weight: 700; fill: #172e50; }
+      .body { font-size: 19px; fill: #405472; }
+      .small { font-size: 17px; fill: #536782; }
+      .label { font-size: 16px; font-weight: 700; letter-spacing: 1.5px; fill: #5476ac; }
+      .planned { fill: #fbfcff; stroke: #a5b2c8; stroke-width: 2; stroke-dasharray: 7 6; }
+      .active { fill: #ffffff; stroke: #557fc5; stroke-width: 2; }
+      .connector { fill: none; stroke: #416cba; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="930" rx="24" fill="url(#background)"/>
+  <rect x="1" y="1" width="1198" height="928" rx="23" fill="none" stroke="#dce5f2"/>
+  <circle cx="62" cy="58" r="19" fill="none" stroke="#5279bb" stroke-width="9"/>
+  <circle cx="77" cy="45" r="8" fill="#edc650"/>
+  <text x="98" y="69" font-size="36" font-weight="700" fill="#172e50">OlThing</text>
+  <text x="40" y="113" class="body">계획은 사용자가 결정하고, 서버는 일관되게 처리합니다.</text>
+  <text x="1160" y="58" text-anchor="end" class="small">ARCHITECTURE / 2026.10.18</text>
+  <line x1="812" y1="98" x2="844" y2="98" stroke="#557fc5" stroke-width="3"/>
+  <text x="854" y="104" class="small">현재 개발 구현</text>
+  <line x1="1000" y1="98" x2="1032" y2="98" stroke="#8897ad" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="1042" y="104" class="small">방향 · 후속</text>
+  <line x1="40" y1="140" x2="1160" y2="140" stroke="#dce5f2"/>
+
+  <!-- Client: selected stack, application implementation remains. -->
+  <rect x="40" y="180" width="260" height="480" rx="18" class="planned"/>
+  <text x="64" y="214" class="label">01 / CLIENT</text>
+  <text x="64" y="250" class="heading">모바일 앱</text>
+  <text x="64" y="282" class="body">React Native · Expo</text>
+  <text x="64" y="310" class="body">TypeScript · Router</text>
+  <rect x="119" y="342" width="102" height="154" rx="17" fill="#edf3ff" stroke="#a0b5d7" stroke-width="2"/>
+  <rect x="149" y="352" width="42" height="5" rx="2.5" fill="#9bb0d1"/>
+  <rect x="134" y="377" width="71" height="12" rx="4" fill="#b9cdee"/>
+  <rect x="134" y="403" width="71" height="27" rx="6" fill="#ffffff"/>
+  <rect x="134" y="440" width="71" height="27" rx="6" fill="#ffffff"/>
+  <circle cx="145" cy="453" r="4" fill="#edc650"/>
+  <text x="64" y="534" class="body">수동 입력 · 후보 미리보기</text>
+  <text x="64" y="564" class="body">명시적 승인 · 재연결 확인</text>
+  <rect x="64" y="599" width="154" height="32" rx="16" fill="#e9eef7"/>
+  <text x="141" y="621" text-anchor="middle" font-size="17" font-weight="700" fill="#526882">기술 채택 / 구현 전</text>
+
+  <path d="M300 415 H380" fill="none" stroke="#8897ad" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#plannedArrow)"/>
+  <text x="340" y="396" text-anchor="middle" class="small">HTTPS</text>
+
+  <!-- A single deployable server; inner cards are responsibilities, not microservices. -->
+  <rect x="380" y="180" width="440" height="480" rx="18" class="active"/>
+  <path d="M399 180 H801 Q820 180 820 199 V250 H380 V199 Q380 180 399 180Z" fill="#254c87"/>
+  <text x="404" y="212" font-size="24" font-weight="700" fill="#ffffff">단일 API 서버</text>
+  <text x="404" y="238" font-size="17" fill="#dce8fc">Java 21 · Spring Boot · 모듈별 책임 분리</text>
+
+  <rect x="404" y="270" width="392" height="88" rx="12" fill="#edf4ff"/>
+  <circle cx="424" cy="296" r="5" fill="#4b77bc"/>
+  <text x="440" y="303" font-size="22" font-weight="700" fill="#254c87">인증 · 세션</text>
+  <text x="424" y="337" class="body">이메일 가입·로그인 / Bearer / 로그아웃</text>
+
+  <rect x="404" y="372" width="392" height="112" rx="12" fill="#edf4ff"/>
+  <circle cx="424" cy="398" r="5" fill="#4b77bc"/>
+  <text x="440" y="405" font-size="22" font-weight="700" fill="#254c87">Task 핵심 API</text>
+  <text x="424" y="438" class="body">생성 · 조회 · 수정 · 완료 · 재개</text>
+  <text x="424" y="466" class="small">소유권 / 버전 / 요청 키 / 원자 저장</text>
+
+  <rect x="404" y="501" width="392" height="132" rx="12" class="planned"/>
+  <text x="424" y="531" font-size="21" font-weight="700" fill="#526882">나머지 기능 · 후속 구현</text>
+  <text x="424" y="563" class="body">Goal·일정 / 쇼핑·사진 / 보관·삭제</text>
+  <text x="424" y="591" class="body">AI 후보 / 계획·승인 / 구독·알림</text>
+  <text x="424" y="617" class="small">해석은 AI, 유효성·반영은 서버 규칙</text>
+
+  <!-- Persistence and local mail are implemented development dependencies. -->
+  <path d="M820 235 H900" class="connector"/>
+  <text x="860" y="219" text-anchor="middle" class="small">SQL</text>
+  <rect x="900" y="180" width="260" height="214" rx="18" class="active"/>
+  <text x="924" y="214" class="label">02 / DATA</text>
+  <text x="924" y="252" class="heading">PostgreSQL</text>
+  <text x="924" y="285" class="body">개발 DB · Flyway</text>
+  <text x="924" y="317" class="body">계정 · 세션 · Task</text>
+  <text x="924" y="349" class="body">변경 이력 · 요청 결과</text>
+  <text x="924" y="376" class="small">46개 테이블 / 스키마 구성</text>
+
+  <path d="M820 316 H857 V447 H900" class="connector"/>
+  <rect x="900" y="414" width="260" height="72" rx="14" class="active"/>
+  <text x="924" y="444" font-size="22" font-weight="700" fill="#254c87">Mailpit</text>
+  <text x="924" y="470" class="small">로컬 인증 메일 통합 테스트</text>
+
+  <path d="M820 574 H900" fill="none" stroke="#8897ad" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#plannedArrow)"/>
+  <rect x="900" y="510" width="260" height="150" rx="18" class="planned"/>
+  <text x="924" y="544" class="label">03 / PROVIDERS</text>
+  <text x="924" y="580" class="heading">외부 연동</text>
+  <text x="924" y="612" class="body">AI API · SES · S3</text>
+  <text x="924" y="640" class="small">서버 연동 / 실제 검증 후속</text>
+
+  <!-- CI is a verification path, not production deployment. -->
+  <rect x="40" y="700" width="1120" height="150" rx="18" fill="#f0f5fc" stroke="#d8e3f2"/>
+  <text x="64" y="736" font-size="23" font-weight="700" fill="#254c87">작게 구현하고, 검증한 뒤 dev에 통합</text>
+  <rect x="64" y="758" width="285" height="66" rx="10" fill="#ffffff"/>
+  <text x="84" y="786" font-size="20" font-weight="700" fill="#254c87">기능 PR · 리뷰</text>
+  <text x="84" y="810" class="small">입력 · 권한 · 실패 · 동시성 대조</text>
+  <path d="M363 791 H405" class="connector"/>
+  <rect x="421" y="758" width="330" height="66" rx="10" fill="#ffffff"/>
+  <text x="441" y="786" font-size="20" font-weight="700" fill="#254c87">Maven verify · GitHub Actions</text>
+  <text x="441" y="810" class="small">Testcontainers · ArchUnit · JaCoCo</text>
+  <path d="M767 791 H809" class="connector"/>
+  <rect x="825" y="758" width="311" height="66" rx="10" fill="#ffffff"/>
+  <text x="845" y="786" font-size="20" font-weight="700" fill="#254c87">dev 병합 · CI 확인</text>
+  <text x="845" y="810" class="small">운영 main 승격 · 공개 배포는 별도</text>
+
+  <circle cx="49" cy="889" r="5" fill="#edc650"/>
+  <text x="64" y="896" class="small">현재 구현은 개발 환경 기준입니다. WSL/Docker 로컬 준비를 우선하며 원격 운영 배포는 후속입니다.</text>
+</svg>
